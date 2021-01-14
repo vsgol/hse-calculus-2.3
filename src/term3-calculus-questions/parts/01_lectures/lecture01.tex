@@ -1,0 +1,233 @@
+\Subsection{Лекция 1}
+
+\begin{definition}\thmslashn
+	
+	$f_1 \in H(\Omega_1)$ и $f_2 \in H(\Omega_2)$
+	
+	$\Delta$ -- компонента связности $\Omega_1 \cap \Omega_2 \not = \emptyset$
+	
+	Если $\left.f_1\right|_{\Delta} = \left.f_2\right|_{\Delta}$, то $f_2$ непосредственное аналитическое продолжение $f_1$ через $\Delta$
+	
+\end{definition}
+
+\begin{remark}\thmslashn
+
+	При фиксации $\Delta$ продолжение единственно
+
+\end{remark}
+
+\begin{proof}\thmslashn
+	
+	$\widetilde{f_2} \in H(\Omega_2)\quad \left.\widetilde{f_2}\right|_{\Delta} = \left.f_1\right|_{\Delta} = \left.f_2\right|_{\Delta} \Rightarrow \left.\widetilde{f_2}\right|_{\Delta} =  \left.f_2\right|_{\Delta} \Rightarrow f_2 \equiv \widetilde{f_2}$ по единственности.
+	
+\end{proof}
+
+
+\begin{remark}\thmslashn
+	
+	Продолжения через разные компоненты связности могут быть разными
+
+\end{remark}
+
+
+\begin{definition}Продолжение по цепочке областей.
+	
+	$f\in H(\Omega)$ и $\widetilde{f} \in H(\widetilde{\Omega})$ 
+	
+	Если существует цеполчка областей
+	
+	$\Omega_0 = \Omega, \Omega_1, \Omega_2, \ldots, \Omega_n = \widetilde{\Omega}, \quad f_0 = f, \ldots, f_n = \widetilde{f}$
+	
+	$f_k \in H(\Omega_k)$ и $f_k$ непосредственно аналитическое продолжение $f_{k-1}$
+	
+\end{definition}
+
+\begin{remarks}\thmslashn
+	
+	\begin{enumerate}
+		\item 
+		Результат зависит от выбора компонент связности на каждом шаге
+		
+		\item
+		При их фиксации результат единственный
+		
+		\item
+		Можно считать, что все промежуточные области -- круги
+		
+	\end{enumerate}
+	
+\end{remarks}
+
+
+\begin{definition}\thmslashn
+	
+	Разобьем множество пар $(f, \Omega)\quad f\in H(\Omega)$
+	
+	на классы эквивалентности отностительно аналитического продолжения по цепочке. (Очевидно, что это отношение эквивалентности $\Rightarrow$ можем разбить на классы)
+	
+	Класс эквивалентности -- полная аналитческая функция $F$ 
+	
+	множество $M := \bigcup_{(f, \Omega)\in F} \Omega$ -- область определения $F$ (существования)
+	
+\end{definition}
+
+\begin{statement}\thmslashn
+	
+	$M$ -- область
+	
+\end{statement}
+
+\TODO написать доказательство
+	
+\begin{definition}\thmslashn
+	
+	Значения полной аналитической функции в точке $z\in M$ -- множество значений в точке $z$ всех функций из ее класса эквивалентности.
+	
+\end{definition}
+
+\begin{remark}\thmslashn
+	
+	Теорема Пуанкаре-Вольтерры. Множество значений $F$ в точке $z$ либо конечно, либо счетно.
+	
+	Более того можно ограничиться лишь нбчс $(f, \Omega)$ в классе эквивалентности.
+	
+\end{remark}
+
+\begin{example}\thmslashn
+
+	$f(z) = \sum\limits_{n=0}^{\infty} z^n$ определена в $\abs{z} < 1$
+	
+	Можно продолжить до $\frac{1}{1-z}$ в $\CC\setminus \{1\}$
+
+	\TODO Написать про то, как надо дополнять, если мы не знаем формулу.
+
+	$\frac{1}{1-z} = \frac{1}{1-a} \cdot \frac{1}{1-\frac{z-a}{1-a}} = \frac{1}{1-a} \cdot \sum\limits_{n=0}^{\infty}\left( \frac{z-a}{1-a} \right)^n = \sum\limits_{n=0}^{\infty}\frac{(z-a)^n}{(1-a)^{n+1}}$ сходится при $\abs{\frac{z-a}{1-a}} < 1 \Leftrightarrow |z-a| < |1-a|$
+	
+\end{example}
+
+\begin{definition}\thmslashn
+	
+	$f(z) = \sum\limits_{n=0}^{\infty} c_n(z-z_0)^n \quad |z-z_0| < R \quad |z_1 - z_0| \leqslant R$
+	
+	$z_1$ -- правильная точка, если $\exists r > 0$ и $g \in H(B_r(r_1))$, т.ч. $f \equiv g$ в $B_R(z_0) \cap B_r(z_1)$ иначе $z_1$ -- особая точка.
+	
+\end{definition}
+
+\begin{theorem}\thmslashn 
+	
+	На границе круга сходимости есть особая точка.
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	Пусть все точки правильные. 
+	
+	$S = \{|z-z_0| = R\}$
+	
+	$\forall z \in S$ найдется круг $B_{r_z}(z)$, на который есть продолжение
+	
+	У нас покрытие компакта (окружности) $\Rightarrow$ мы можем выбрать конченое подпокрытие шириками, из которых по лемме Лебега возьмем $r>0$ чтобы у любой точки окружности был шарик радиуса $r$
+	
+	Продолжим $f$ в $\Omega = B_R(z_0) \cap B_{r_1}(z_1)\cap \ldots \cap B_{r_n}(z_n)$
+	
+	Тогда $f \in H(\Omega)$, но $\Omega \supset B_{R+r}(z_0)$
+	
+	Разложим $f$ в ряд с центром в $z_0$, он сходится в $B_{R+r}(z_0) \Rightarrow B_R(z_0)$ не круг сходимости.
+	
+\end{proof}
+
+\begin{example}\thmslashn
+	
+	\begin{enumerate}
+		\item 
+		$f(z) = \sum\limits_{n=1}^{\infty} \frac{z^n}{n^2} \quad$ сходится во всех точках $|z| = 1$
+		
+		$(f(z))' = \sum \frac{z^{n-1}}{n} \quad (zf'(z))' = \sum z^n = \frac{1}{1-z} \Rightarrow$ точка $z = 1$ особая, хотя интеграл сходится
+		
+		\item
+		$\sum\limits_{n=1}^{\infty} z^{2^n} $ все точки $|z| = 1$ особые.
+		
+	\end{enumerate}
+	
+\end{example}
+
+\begin{theorem}\thmslashn 
+	
+	$f\in H(\Omega) \quad \Omega$ -- односвязная область в $\CC$ и $f\not = 0$ в $\Omega$
+	
+	Тогда существует $g\in H(\Omega)$, т.ч. $e^{g(z)} = f(z) \forall z \in \Omega$ и $g$ единственна с точностью до $+2\pi i k$, где $k \in \Z$
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	$\frac{f'}{f} \in H(\Omega) \Rightarrow$ у нее есть первообразная в $\Omega$
+	
+	зафиксируем $z_0 \in \Omega$ и подбурем константу так, что $e^{g(z_0)} = f(z_0)$
+	
+	Докажем, что $e^{g(z)} = f(z)\,\, \forall z \in \Omega$ 
+	
+	Рассмотрим $h(z) = e^{-g(z)}f(z)$
+	
+	$h(z_0) = 1, h'(z) = -g'(z)e^{-g(z)}f(z) + e^{-g(z)}f'(z) = \frac{f'(z)}{f(z)}e^{-g(z)}f(z) + e^{-g(z)}f'(z) = 0$ значит эту функция константа
+	
+	Пусть есть $g_1$ и  $g_2$, тогда $e^{g_1(z) - g_2(z)} =1 \Rightarrow g_1(z) - g_2(z) = 2\pi i k (z)$ -- непрерывная функция и $k(z)\in \Z \Rightarrow k(z)$ фиксированная функция, тк она не может перескочить с одного дискретного значения на другое (функция непрерывна $\Rightarrow$ теорема Больцана-Коши $\Rightarrow$ есть все значения между, а из нет)
+\end{proof}
+
+\begin{consequence}\thmslashn
+	
+	В односвязной области $\Omega \subset \CC \setminus \{0\}$ существует $g\in H(\Omega)$, т.ч. $e^{g(z)} = z$ и $g$ единственна с точностью до $+2\pi i k $, где $k\in \Z$
+	
+\end{consequence}
+
+\begin{proof}\thmslashn
+	
+	Подставим $f(z) = z$
+	
+\end{proof}
+
+\begin{remark}\thmslashn
+	
+	$g(z) = \ln |z| + i \arg z$
+	
+	Причем $\arg z$ непрерывен в $\Omega$
+	
+\end{remark}
+
+\begin{definition}\thmslashn
+	
+	Функции $g$ из следствия из одного класса эквивалентности 
+	
+	Получилась полная аналитическая функция $\text{Ln }$ логарифм
+	
+	Ее представители -- голоморфные ветви логарифма.
+ 	
+\end{definition}
+
+\begin{properties}[$\text{Ln}$]
+	
+	\begin{enumerate}
+		\item
+		$\text{Ln } z = \{w\in \CC : e^w = z\} \quad z \not = 0$
+		
+		\item
+		$\text{Ln } z = \ln |z| + i \text{Arg } z\quad z \not = 0$, где $\text{Arg } = \text{{все аргументы }}z$
+		
+		\item
+		$\text{Ln } (z_1 z_2) = \text{Ln } z_1 + \text{Ln } z_2$
+		
+		$\text{Ln } (z_1 z_2) = \ln|z_1 z_2| + i \text{Arg } (z_1 z_2) = \ln|z_1| + \ln|z_2| + i \text{Arg } z_1 + i \text{Arg } z_2 = \text{Ln } z_1 + \text{Ln } z_2$
+	\end{enumerate}
+	
+\end{properties}
+
+\begin{remark} Для голоморфногой ветви логарифма свойства 3 нет
+	
+	$\text{Ln } z = \ln|z| + i \arg z \quad -\pi < \arg z < \pi$
+	
+	$\text{Ln } e^{3\pi i /4} = \frac{3\pi i}{4}$
+	
+	$\text{Ln } \left( (e^{3\pi i /4})^2\right) = \text{Ln } \left( e^{2\cdot3\pi i /4}\right) = \text{Ln } \left( e^{3\pi i /2}\right) = -\frac{\pi i}{2} \not = \frac{3\pi i}{4} + \frac{3\pi i}{4}$
+	
+\end{remark}
