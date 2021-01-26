@@ -1,0 +1,291 @@
+\Subsection{Лекция 2}
+
+\begin{definition}\thmslashn
+	
+	$z^p := e^{p \Ln z}$
+	
+\end{definition}
+
+\begin{remarks}\thmslashn
+
+	\begin{enumerate}
+		\item 
+		Если $p \in \Z \quad e^{p\cdot 2\pi i k} = 1$ и функция однозначна.
+		
+		\item 
+		Если $p = \frac{q}{r}, \,\, q\in\Z,\,\,r\in\N \quad e^{\frac{q}{r}\cdot 2\pi i k}$ принимает $r$ различных значений (зависит от остатка $k \mod r$)
+		
+		\item
+		Если $p\in \CC\setminus \Q$ функция принимает счетное число значений $e^{p\cdot 2\pi i k} \not = 1$
+	\end{enumerate}
+	
+\end{remarks}
+
+\begin{exerc}\thmslashn
+	
+	\begin{enumerate}
+		\item 
+		Найти $i^i$
+		
+		\item
+		$(z^p)' = \frac{pz^p}{z}$ при $z \not = 0$
+		
+		\item
+		$z^pz^q \not = z^{p+q}$
+		
+		$(z^p)^q \not = z^{pq}$
+		
+		Если рассмотреть конкретную ветвь
+	\end{enumerate}
+	
+\end{exerc}
+
+\begin{definition}[Ряд Лорана]\thmslashn
+	
+	$\sum\limits_{n=-\infty}^{+\infty} c_n(z-z_0)^n$
+	
+	$f_1(z) := \sum\limits_{n=0}^{+\infty} c_n(z-z_0)^n$ Правильная (регулярная часть)
+	
+	$f_2(z) := \sum\limits_{n=1}^{+\infty} c_{-n}(z-z_0)^{-n}$ главная часть
+	
+\end{definition}
+
+Дальше $z_0 = 0$
+
+\begin{properties}\thmslashn
+	
+	\begin{enumerate}
+		\item 
+		Существует $r, R \in [0, \infty]$, т.ч. $\forall z\quad r < |z| < R$ ряд абсолютно сходится, $\forall z\;\; |z| < r$ и $\forall z \;\; |z| > R$ ряд расходится.
+	
+		$\frac{1}{r}$ -- радиус сходимости ряда $\sum\limits_{n=1}^{+\infty} c_{-n}z^{n}$
+		
+		$R$ -- радиус сходимости правильной части
+		
+		\item
+		В кольце, лежащем внутри $r < |z| < R$, сходимость равномерная.
+		
+		\item
+		В кольце сходимости можно почленно дифференцировать.
+	\end{enumerate}
+	
+\end{properties}
+
+\begin{theorem}\thmslashn
+	
+	Если голоморфная функция раскладывается в кольце $r < |z| < R$ в ряд Лорана, то его коэффициенты определяются однозначно. 
+	
+	$f(z) = \sum\limits_{n=-\infty}^{+\infty} a_n z^n \Rightarrow a_n = \frac{1}{2\pi i} \int\limits_{|\xi| = \rho} \frac{f(\xi)}{\xi^{n+1}}\,d\xi$, где $r < \rho < R$
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	$f(\rho e^{i t}) = \sum\limits_{n=-\infty}^{+\infty} a_n \rho^n e^{int}$ равномерно сходится $\Rightarrow$ 
+	
+	$ \int\limits_{|\xi| = \rho} \frac{f(\xi)}{\xi^{n+1}}\,d\xi =  \int\limits_{0}^{2\pi} \frac{f(\rho e^{i t})}{\rho^{n+1} e^{i(n+1)t}}\rho e^{it} i\,dt = i\int\limits_{0}^{2\pi} \sum\limits_{k = -\infty}^{+\infty}a_k \rho^k e^{ikt} \cdot \frac{dt}{\rho^{n}e^{int}} = i\sum\limits_{k = -\infty}^{+\infty}a_k \int\limits_{0}^{2\pi}\rho^{k-n} e^{i(k-n)t}\,dt = ia_n\cdot 2\pi$
+	
+	$\int\limits_{0}^{2\pi}\rho^{k-n} e^{i(k-n)t}\,dt = 0$ если $k\not = n$ и $ = 2\pi$, если $k = n$
+	
+\end{proof}
+
+\begin{remark}\thmslashn
+	
+	Неравенство Коши $|a_n| \leqslant \frac{M(\rho)}{\rho^n}$, где $M(\rho) = \max\limits_{|z| = \rho}{|f(z)|}$
+	
+\end{remark}
+
+\begin{theorem}[Лорана]\thmslashn
+	
+	Если $f$ голоморфна в кольце $r < |z| < R$, то она там раскладывается в ряд Лорана
+
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	$r < r_1 < r_2 < R_2 < R_1 < R$, тогда $f$ голоморфна в $r_1 \leqslant |z| \leqslant R_1$
+	
+	Напишем интегральную формулу Коши для этого кольца 
+	
+	$f(z) = \frac{1}{2\pi i} \int\limits_{|\xi| = R_1} \frac{f(\xi)}{\xi - z}\, d\xi - \frac{1}{2\pi i} \int\limits_{|\xi| = r_1} \frac{f(\xi)}{\xi - z}\, d\xi$
+	
+	$\frac{1}{\xi - z} = \frac{1}{\xi} \cdot \frac{1}{1-z/\xi} = \frac{1}{\xi} \sum\limits_{n=0}^\infty \left( \frac{z}{\xi} \right)^n$ при $|z| \leqslant R_2$ равномерно сходится.
+	
+	$ \int\limits_{|\xi| = R_1} \frac{f(\xi)}{\xi - z}\, d\xi =  \int\limits_{|\xi| = R_1} f(\xi) \sum\limits_{n=0}^\infty \frac{z^n}{\xi^{n+1}}\, d\xi = \sum\limits_{n=0}^\infty z^n \int\limits_{|\xi| = R_1} \frac{f(\xi)}{\xi^{n+1}}\, d\xi$ это дает правильную часть
+	
+	$\frac{1}{\xi - z} = -\frac{1}{z} \cdot \frac{1}{1-\xi/z} = -\frac{1}{z} \sum\limits_{n=0}^\infty \left( \frac{\xi}{z} \right)^n$ при $|z| \geqslant r_2$ равномерно сходится.
+	
+	$ -\int\limits_{|\xi| = r_1} \frac{f(\xi)}{\xi - z}\, d\xi =  \int\limits_{|\xi| = r_1} f(\xi) \sum\limits_{n=0}^\infty \frac{\xi^n}{z^{n+1}}\, d\xi = \sum\limits_{n=0}^\infty \frac{1}{z^{n+1}} \int\limits_{|\xi| = r_1} f(\xi) \cdot \xi^{n}\, d\xi$ это дает главную часть
+
+	По прошлой теореме такое разложение единственно	
+	
+\end{proof}
+
+\begin{theorem}\thmslashn
+	
+	$f$ - голоморфна в кольце $r < |z| < R$
+	
+	Тогда существует $f_1 \in H(R\mathbb{D})$ и $f_2 \in H(\CC \setminus r \tilde{\mathbb{D}})$, т.ч. $f(z) = f_1(z) + f_2(z)$
+	
+	Если добавить, что $|f_2(z)| \to 0$ при $|z| \to \infty$, то разложение единственно.
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	$f_1$ -- сумма правильной части, $f_2$ -- сумма главной части
+	
+	Единственность. Пусть $f(z) = f_1(z) + f_2(z) = g_1(z) + g_2(z)$
+	
+	$f_1, g_1 \in H(R\mathbb{D})$ и $f_2, g_2 \in H(\CC \setminus r \tilde{\mathbb{D}})$ и $\lim\limits_{|z| \to \infty} f_2(z) = \lim\limits_{|z| \to \infty} g_2(z) = 0$
+	
+	$h(z) = \begin{cases}
+	f_1(z) - g_1(z), & \text{ при } |z| < R\\
+	f_2(z) - g_2(z), & \text{ при } |z| > r\\
+	\end{cases}$
+	
+	$|h(z)| \leqslant |g_2(z)| + |f_2(z)| \underset{|z|\to \infty}\to 0 \Rightarrow h$ ограничена. 
+	
+	$h$ задана в $\CC$ и голоморфна там $\Rightarrow$, тк это ограниченная функция, то по теореме Лиувилля $h = \text{const} \Rightarrow h \equiv 0$
+	
+\end{proof}
+
+\begin{definition}\thmslashn
+
+	$f$ -- голоморфна в кольце $0 < |z - z_0| < R$
+
+	$z_0$ -- изолированная особая точка
+	
+	Если существует конечный предел $\lim\limits_{z \to z_0} f(z)$, то $z_0$ -- устранимая особая точка.
+	
+	Если $\lim\limits_{z \to z_0} f(z) = \infty$, то $z_0$ -- полюс
+	
+	Если $\lim\limits_{z \to z_0} f(z)$ не существует (даже $\infty$), то $z_0$ -- существенная особая точка.
+	
+\end{definition}
+
+\begin{example}\thmslashn
+	
+	$\frac{\sin z}{z}, \, \frac{1-e^z}{z} \quad 0$ -- устранимая точка 
+	
+	$\frac{1}{\sin z}, \, \frac{1}{z}\quad 0$ -- полюс
+	
+	$e^{1/z} \quad 0$ -- существенная особая точка.
+	
+	Как понять, что нет предела? Взять несколько подпоследовательностей, которые сходятся к разным значениям.
+	
+	$z_n = \frac{1}{n}\quad \lim = \infty \quad z_n = \frac{1}{2\pi i n} \quad \lim = 1$
+	
+\end{example}
+
+\begin{theorem}[харакатеристика устранимой особой точки]\thmslashn
+	
+	$f\in H(0 < |z - z_0| < R)$ Тогда равносильны 
+	
+	\begin{enumerate}
+		\item 
+		$z_0$ -- устранимая особая точка
+		
+		\item
+		$f$ ограничена в некоторой окрестности точки $z_0$
+		
+		\item
+		Существует функция $g\in H(|z - z_0| < R)$, совпадающая с $f$ при $0 < |z - z_0| < R$
+		
+		\item
+		В главное части ряда Лорана все коэффициенты равны нулю.
+	\end{enumerate}
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	\begin{enumerate}
+		\item[4)$\Rightarrow$3)] 
+		$f(z) = \sum\limits_{n=0}^{\infty}a_n(z-z_0)^n$ в качестве $g$ берем сумму этого ряда 
+		
+		$g(z) = \begin{cases}
+		f(z), & \text{ при } z \not = z_0\\
+		a_0, & \text{ при } z = z_0\\
+		\end{cases}$
+		
+		\item[3)$\Rightarrow$1)] 
+		$g$ голоморфна $\Rightarrow \lim\limits_{z \to z_0} f(z) = \lim\limits_{z \to z_0} g(z) = g(z_0)$
+		
+		\item[1)$\Rightarrow$2)] очевидно
+		
+		\item[2)$\Rightarrow$4)]
+		Выберем $0 < \tilde{R} < R$ 
+		
+		$f(z) = \sum\limits_{n=-\infty}^{\infty} a_n(z-z_0)^n$, где $a_n = \frac{1}{2\pi i} \int\limits_{|\xi| = r}\frac{f(\xi)}{\xi^{n+1}}$
+		
+		Из неравенства Коши мы можем ограничить коэффициенты
+		
+		$|a_n| \leqslant \frac{M(r)}{r^n} \leqslant \frac{M}{r^n} \underset{r \to 0}\to 0$, тк $n < 0$
+	\end{enumerate}
+	
+\end{proof}
+
+\begin{theorem}[харакатеристика полюсов]\thmslashn
+	
+	$f\in H(0 < |z - z_0| < R)$ Тогда равносильны 
+	
+	\begin{enumerate}
+		\item 
+		$z_0$ -- полюс
+		
+		\item
+		Существует $m \in N$ и функция $g\in H(|z - z_0| < R)$, т.к. $g(z_0) = 0$ и $f(z) = \frac{g(z)}{(z-z_0)^m}$ при $z \not = z_0$
+		
+		\item
+		В главной части ряда Лорана лишь конечное число ненулевых коэффициентов (но они есть).
+	\end{enumerate}
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	\begin{enumerate}
+		\item[3)$\Rightarrow$1)] 
+		Пусть $N$ -- наибольший номер такого ненулевого коэффициента
+		
+		$f(z) = \sum\limits_{n=0}^{\infty} a_n(z - z_0)^n + \sum\limits_{n=-N}^{-1} a_n (z - z_0)^n = \sum\limits_{n=0}^{\infty} a_n(z - z_0)^n + \frac{\sum\limits_{n=0}^{N+1} a_{N-n}(z-z_0)^{N-n}}{(z - z_0)^N} \underset{z\to z_0}\to \infty$
+		
+		\item[2)$\Rightarrow$3)]
+		$g(z) = \sum\limits_{n=0}^{\infty} b_n(z-z_0)^n \Rightarrow f(z) = \sum\limits_{n=0}^\infty b_n(z-z_0^{n-m})$ -- ряд орана
+		
+		\item[1)$\Rightarrow$2)]
+		$\lim\limits_{z \to z_0}f(z) = \infty \Rightarrow$ есть круг $|z - z_0| \leqslant r$, т.ч. $|f(z)| > 1$ в этом круге 
+		
+		$h(z) = \frac{1}{f(z)}$ в этом круге, тогда  $h \in H(0 < |z - z_0| < r)$ и $\lim\limits_{z \to z_0} h(z) = 0$ Доопределим $h(z_0) = 0$.
+		
+		А для этой функции у нас есть характеристика нуля $\Rightarrow h(z) = (z-z_0)^m \tilde{h}(z)$, где $\tilde{h}(z_0) \not = 0$
+		
+		Давайте перевернем все обратно. Мы можем это делать, тк $\tilde{h}(z_0) \not = 0$, значит и в окрестности не ноль.
+		
+		$f(z) = \frac{1/\tilde{h}(z)}{(z - z_0)^m} \Rightarrow$ $\frac{1}{\tilde{h}}$ голоморфна в окрестности $z_0$
+		
+		Во всех точках круга, кроме точки $z_0$, мы определим $g(z) = (z-z_0)^mf(z)$, а в точке $z_0$ доопределим $\frac{1}{\tilde{h}}$
+		
+		\TODO что-то более формальное написать почему тут все хорошо и почему есть непрерывность
+	\end{enumerate}
+	
+\end{proof}
+
+\begin{remark}\thmslashn
+	
+	Мы доказали равносильность 
+	
+	\begin{enumerate}
+		\item 
+		$z_0$ -- полюс порядка $m$ функции $f$ (это то $m$, которое в пункте 2) теоремы)
+		
+		\item 
+		$z_0$ -- ноль кратности $m$ функции $1/f$
+		
+		\item
+		$f(z) = \sum\limits_{n=-m}^\infty a_n(z - z_0)^n$, $a_{-m} \not = 0$ в проколотой окрестности точки $z_0$
+		
+	\end{enumerate}
+	
+\end{remark}
