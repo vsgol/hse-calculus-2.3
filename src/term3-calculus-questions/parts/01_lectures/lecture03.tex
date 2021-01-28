@@ -1,0 +1,249 @@
+\Subsection{Лекция 3}
+
+\begin{definition}\thmslashn
+	
+	Функция, не имеющая в $\Omega$ никаких особых точек за исключением полюсов, называется мероморфной в $\Omega$
+	
+	$f \in H(\Omega \setminus E)$ и в точках из $E$ у нее полюсы
+	
+\end{definition}
+
+
+\begin{remark}\thmslashn
+
+	$E$ не имеет предельных точек в $\Omega$
+	
+	Если у нас есть предельная точка в $\Omega$, то есть последовательность полюсов т.ч. в пределе $\infty$, но тогда значение в этой точке $\infty \Rightarrow$ это полюс, а в окрестности полюса есть шарик, в котором функция голоморфна.
+	
+\end{remark}
+
+\begin{example}\thmslashn
+	
+	$f(z) = \frac{1}{\sin \frac{1}{z}} \quad z = \frac{1}{\pi k}$
+	
+	$f$ мероморфна в $\CC \setminus \{0\}$, но не мероморфна в $\CC$
+	
+\end{example}
+
+\begin{property}\thmslashn
+	
+	Если $f$ и $g$ мероморфны в $\Omega$, то $f \pm g, fg, f/g$ (если $g \not\equiv 0$) и $f'$ мероморны в $\Omega$
+		
+\end{property}
+
+\begin{proof}\thmslashn
+	
+	\TODO написать про $f\pm g$
+	
+	$fg$ и $f/g\quad f(z) = (z - z_0)^m \phi(z)\,\, g(z) = ()z-z_0)^n \psi(z) \,\, \phi(z_0) \not = 0\,\, \psi(z_0) \not = 0$
+	
+	$f(z)g(z) = (z - z_0)^{m+n}\phi(z)\psi(z) \quad f(z)/g(z) = (z - z_0)^{m-n}\frac{\phi(z)}{\psi(z)}$
+	
+	\TODO написать про голоморфность
+	
+	$f'(z) = (z-z_0)^m\phi'(z) + m(z-z_0)^{m-1} \phi(z) = (z - z_0)^{m-1}(m\phi(z) + (z-z_0)\phi'(z))$ в скобках голоморфная функция
+	
+\end{proof}
+
+\begin{theorem}[характеристика существенных особых точек]\thmslashn
+	
+	$f \in H(0 < |z -z_0| < R)$, тогда равносильны 
+	
+	Тогда равносильны 
+	
+	\begin{enumerate}
+		\item 
+		$z_0$ -- существенная особая точка
+		
+		\item
+		В главной части ряда Лорана лишь бесконечное число ненулевых слагаемых
+	\end{enumerate}
+
+\end{theorem}
+
+\begin{example}\thmslashn
+	
+	$e^{1/z} = 1 + \frac{1}{z} + \frac{1}{z^2}\cdot\frac{1}{2!} + \frac{1}{z^3}\cdot\frac{1}{3!} + \ldots$
+
+	$e^{z} = 1 + z + \frac{z^2}{2!} + \frac{z^3}{3!} + \ldots$
+	
+	$\sin{1/z} = \frac{1}{z} - \frac{1}{z^3}\cdot\frac{1}{3!} + \frac{1}{z^5}\cdot\frac{1}{5!} + \ldots$
+	
+\end{example}
+
+\begin{remark}\thmslashn
+	
+	В окрестности $0$ $e^{1/z}$ принимает все значение, кроме $0$.
+	
+\end{remark}
+
+\begin{theorem}[Пикара]\thmslashn
+	
+	$a$ -- существенная особая точка $f \Rightarrow$ в проколотой окрестности точки $a$ $f$ принимает все значения, кроме возможно одного.
+	
+\end{theorem}
+
+\begin{theorem}[Сохоцкого]\thmslashn
+	
+	$a$ -- существенная особая точка $f$
+	
+	Тогда $\forall \varepsilon > 0\,\,f ( 0< |z - a| < \varepsilon) = \CC$ Более того $\forall A \in \CC$ или $A = \infty$ найдется последовательность $z_n \to a$, т.ч. $f(z_n) \to A$
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	Поймем, что из "более того" следует $\forall \varepsilon > 0\,\,f ( 0< |z - a| < \varepsilon) = \CC$.
+	
+	Возьмем число $a$ возьмем последовательность $z_n \to a$, т.ч. $f(z_n) \to A$ начиная с какого-то момента $z_n \in 0< |z - a| < \varepsilon \Rightarrow$ предел образа лежит в замыкании
+	
+	Поймем, что существует последовательность $z_n$, которая стремится к $a$, а значения функции к бесконечности.
+	
+	Иначе $f$ ограничена в окрестности точки $a$ и тогда $a$ -- устранимая особая точка.
+	
+	Пусть $A \in \CC$. Если $\forall \varepsilon > 0\quad A \in f(0 < |z - a| < \varepsilon)$, то найдутся $|z_n-a| < \frac{1}{n}$, т.ч. $f(z_n) = A$ и это нужная последовательность.
+	
+	Можно считать, что $f(z) \not = A$ при $0 < |z - a| < \varepsilon$.
+	
+	Рассмотрим $g(z) = \frac{1}{f(z) - A}$ голоморфна в $0 < |z - a| < \varepsilon$
+	
+	$f(z) = A + \frac{1}{g(z)}$
+	
+	$a$ не может быть ни устранимой точкой, ни полюсом $g$. Если $a$ -- полюс для $g$, то $a$ -- устранимая особая точка $f$, а если $a$ -- устанимая особая точка $g$, то $a$ -- устанимая особая точка или полюс $f$
+ 	
+ 	$\Rightarrow a$ -- существенная особая точка $g \Rightarrow \exists z_n \to a$, т.ч. $g(z_n )\to \infty \Rightarrow f(z_n) = A + \frac{1}{g(z_n)} \to A$
+ 	
+\end{proof}
+
+\begin{designations}\thmslashn
+
+	$\bar{\CC} = \CC \cup \{\infty\}$
+	
+	$f(\infty) = \ldots$
+	
+	Непрерывность в $\infty$ $f(\infty) = \lim\limits_{z \to \infty} f(z)$
+	
+	$\forall z_n \to \infty \Rightarrow f(z_n) \to f(\infty)$
+
+\end{designations}
+
+\begin{definition}\thmslashn
+	
+	Особая точка $z  = \infty \quad f\in H(|z| > R)$
+	
+	$\infty$ -- устранимая особая точка $f$, если $\exists$ конечный $\lim\limits_{z \to \infty} f(z)$
+	
+	$\infty$ -- полюс $f$, если $\lim\limits_{z \to \infty} f(z) = \infty$
+	
+	$\infty$ -- существенная особая точка $f$, если $\lim\limits_{z \to \infty} f(z)$ не существует.
+	
+\end{definition}
+
+\begin{remark}\thmslashn
+	
+	$f \in H(|z| > R) \Leftrightarrow g(z) = f(1/z) \in H( 0 < |z| < \frac{1}{R})$
+	
+	$1/z$ -- голоморфная функция, композиция голоморфных функций -- голоморфная функция $\Rightarrow g$ -- голоморфная функция
+	
+	$\lim\limits_{z \to \infty} f(z) = \lim\limits_{z \to 0} g(z)$ 
+\end{remark}
+
+\begin{statement}\thmslashn
+	
+	$\infty$ -- устанимая особая точка $\Leftrightarrow f$ ограничена в окрестности $\infty \Leftrightarrow$ в ряде Лорана $f$ нет положительных степеней
+	
+	$\infty$ -- устанимая особая точка $f \Leftrightarrow 0$ -- устранимая особая точка $g = f(1/z) \Leftrightarrow g$ ограничена в окрестности $0 \Leftrightarrow f$ ограничена в окрестности $\infty$
+	
+	$\Leftrightarrow$ в главной части ряда Лорана (по степеням $z$) все слагаемые нулевые для $g$
+	
+	$\Leftrightarrow$ в ряде Лорана (по степеням $z$) нет положительных степеней для $g$
+	
+\end{statement}
+
+\begin{definition}\thmslashn
+	
+	$f$ голоморфна в $\infty$ если там устранимая особая точка
+	 
+\end{definition}
+
+\begin{statement}\thmslashn
+	
+	$\infty$ --полюс $f \Leftrightarrow$ в ряде Лорана $f$ для $f$ ненулевое конечное множество положительных степеней
+	
+	$\infty$ -- полюс $f \Leftrightarrow 0$ -- полюс $g = f(1/z) \Leftrightarrow$ в главной части ненеулвое коенчное число слагаемых для g $\Leftrightarrow$ в ряде Лорана $f$ для $f$ ненулевое конечное множество положительных степеней
+	
+\end{statement}
+
+\begin{definition}[Сфера Римана]\thmslashn
+	
+	\TODO рисунок
+	
+	Короче это шарик на плоскости и каждую точку можно получить так проекцию точки окружности из северного полюса.
+	
+\end{definition}
+
+\begin{consequence}\thmslashn
+	
+	\begin{enumerate}
+		\item 
+		Расстояние между образами точек $z$ и $z_1$ равно $\frac{|z - z_1|}{\sqrt{1 + |z|^2}\sqrt{1 + |z_1|^2}}$. Расстояние между образами $z$ и $\infty$ равно $\frac{1}{\sqrt{1 + |z|^2}}$
+		
+		\begin{proof}\thmslashn
+			
+			$u + iv$, $w$ $\frac{z}{1 + |z|^2}$ и $\frac{|z|^2}{1 + |z|^2}$
+			
+			$\rho = \abs{\frac{z}{1 + |z|^2} - \frac{z_1}{1 + |z_1|^2}} + \left(\frac{|z|^2}{1 + |z|^2} - \frac{|z_1|^2}{1 + |z_1|^2} \right)^2 = $
+			
+			$= \frac{z\bar{z}}{(1 + |z|^2)^2} + \frac{z_1\bar{z_1}}{(1 + |z_1|^2)^2} - \frac{z\bar{z_1} + \bar{z}z_1}{(1 + |z|^2)(1 + |z_1|)^2} + \frac{(|z|^2 - |z_1|^2)^2}{(1 + |z|^2)^2(1 + |z_1|^2)^2} = $
+			
+			$= \frac{|z|^2}{(1 + |z|^2)^2} + \frac{|z_1|^2}{(1 + |z_1|^2)^2} - \frac{2\Re z\bar{z_1}}{(1 + |z|^2)(1 + |z_1|)^2} + \frac{(|z|^2 - |z_1|^2)^2}{(1 + |z|^2)^2(1 + |z_1|^2)^2}$
+			
+			$\frac{|z-z_1|^2}{(1+|z|^2)(1 + |z_1|^2)} = \frac{|z|^2 + |z_1|^2 - 2\Re z \bar{z_1}}{(1+|z|^2)(1 + |z_1|^2)}$
+		
+			\TODO досчитать
+			
+			Для $z$ и $\infty$
+			
+			$\rho = \abs{\frac{z}{1 + |z|^2}}^2 + \left(1 - \frac{|z|^2}{1+|z|^2}\right)^2 = \frac{|z|^2}{(1 + |z|^2)^2} + \frac{1}{(1 + |z|^2)^2} = \frac{1}{1 + |z|^2}$
+		\end{proof}
+	
+		\item
+		Сходимость в $\bar{\CC}$ равносильна сходимости на сфере Римана.
+		
+		\begin{proof}\thmslashn
+			
+			$\frac{|z-z_1|}{\sqrt{1+|z|^2}\sqrt{1+|z_1|^2}} \quad \frac{1}{\sqrt{1 + |z|^2}}$
+			
+			$z_n \to z \Rightarrow |z_n - z| \to 0 \Rightarrow \frac{|z - z_n|}{\sqrt{1+|z|^2}\sqrt{1+|z_1|^2}} \to 0$
+		
+			$\frac{|z - z_n|}{\sqrt{1+|z|^2}\sqrt{1+|z_1|^2}} \to 0 \Rightarrow |z - z_n| \to 0$
+		
+		\end{proof}
+		
+		\item
+		$\bar{\CC}$ -- компакт
+	\end{enumerate}
+	
+\end{consequence}
+
+\begin{theorem}[Лиувилля]\thmslashn
+	
+	$f \in H(\bar{\CC}) \Rightarrow f \equiv \text{const}$
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	$f \in H(\bar{\CC}) \Rightarrow f\in C(\bar{\CC}) \Rightarrow f$ ограничена по теореме Вейерштрасса $\Rightarrow$ по теореме Лиувилля это константа
+	
+\end{proof}
+
+\begin{remark_author}\thmslashn
+	
+	\begin{theorem}[Лиувилля]\thmslashn
+		
+		$f$ -- целая и ограниченная функция $\Rightarrow$ $f$ -- константа
+		
+	\end{theorem}
+	
+\end{remark_author}
