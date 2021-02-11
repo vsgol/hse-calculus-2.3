@@ -1,0 +1,174 @@
+\Subsection{Лекция 5}
+
+\begin{lemma}[Жордана]\thmslashn
+	
+	$C_{R_n} := \{z \in \CC: |z| = R_n, \Im z > 0\}$
+	
+	$R_n \to +\infty\,\, m_n = \sup\limits_{z \in C_{R_n}} |g(z)| \to 0$
+	
+	Тогда $\forall \lambda > 0\,\, \int\limits_{C_{R_n}} g(z) e^{i\lambda z}\,dz \underset{n\to +\infty}\to 0$
+	
+\end{lemma}
+
+\begin{proof}\thmslashn
+	
+	$z = R_ne^{e\phi}\quad |e^{i\lambda z}| =|e^{i\lambda R_n(\cos \phi + i\sin\phi)}| = e^{-\lambda R_n \sin \phi}\underset{\phi \in [0, \frac{\pi}{2}]}\leqslant e^{-2\lambda R^n/\pi}$
+	
+	$\sin \phi \geqslant \frac{2\phi}{\pi}$ при $\phi \in [0, \frac{\pi}{2}]$
+	
+	$\int\limits_{C_{R_n}} g(z) e^{i\lambda z}\,dz = |\int\limits_{0}^\pi g(R_n e^{i\phi}) e^{i\lambda R_n e^{i\phi}} R_n e^{i\phi} i\,d\phi| \leqslant \int\limits_{0}^{\phi} M_n R_n e^{-\lambda R_n \sin \phi} \,d\phi = 2M_nR_n\int\limits_{0}^{\pi/2} e^{-\lambda R_n \sin \phi} \,d\phi \leqslant 2M_n r_n \int\limits_{0}^{\pi/2} e^{-2\lambda R_n \phi/\pi} \,d\phi = 2M_nR_n \left.\dfrac{-e^{-2\lambda R_n \phi/\pi}}{2\lambda R_n /\pi}\right|_{0}^{\pi/2} \leqslant \frac{\pi M_n}{\lambda} \to 0$
+	
+\end{proof}
+
+\begin{example}\thmslashn
+	
+	$\int\limits_{0}^{+\infty} \frac{\cos \lambda x}{1 + x^2}\,dx = I = \frac{1}{2}\int\limits_{-\infty}^{+\infty}\frac{\cos\lambda x}{1 + x^2}\,dx = \frac{1}{2} \Re \int\limits_{-\infty}^{+\infty}\frac{e^{i\lambda x}}{1 + x^2}\,dx$
+	
+	$f(z) = \frac{e^{i\lambda z}}{1 + z^2}$
+	
+	$\int\limits_{\Gamma_R} f(z)\,dz = 2\pi i \sum res = 2\pi i res_{z = i}\frac{e^{i\lambda z}}{1 + z^2} = 2\pi i \frac{e^{i\lambda z}}{(1 + z^2)'}\Big|_{z = i} = 2\pi i \frac{e^{-\lambda}}{2 i} = \frac{\pi}{e^\lambda}$
+
+	$\int\limits_{\Gamma_R} f(z)\,dz = \int\limits_{-R}^R + \int\limits_{C_R} \to \int\limits_{-\infty}^{+\infty} + 0$
+	
+	\TODO Приделать рисунок
+	
+\end{example}
+
+\begin{lemma}[о полувычете]\thmslashn
+	
+	$a$ -- полюс первого порядка функции $f$
+	
+	$C_{\varepsilon} := \{z \in \CC: |z - a| = \varepsilon, \alpha \leqslant \arg (z-a) \le \beta\}$
+	
+	Тогда $\int\limits_{C_{\varepsilon}} f(z)\,dz \underset{\varepsilon\to 0+}\to (\beta -\alpha) i res_{z = a} f(z)$
+	
+\end{lemma}
+
+\begin{proof}\thmslashn
+	
+	$f(z) = \frac{c}{z-a} + g(z)$, где $g$ голоморфна в окрестности точки $a$
+	
+	$\int\limits_{C_{\varepsilon}} f(z)\,dzz = \int\limits_{C_{\varepsilon}} \frac{c}{z - a} \,dz + \int\limits_{C_{\varepsilon}} g(z)\,dz$
+	
+	$\abs{\int\limits_{C_{\varepsilon}} g(z)\,dz} \leqslant 2\pi \varepsilon \max|g(z)| \leqslant 2\pi \varepsilon M \to 0$
+	
+	$\int\limits_{C_{\varepsilon}} \frac{c}{z-a} \,dz = \int\limits_{\alpha}^{\beta} \frac{c}{\varepsilon e^{i\phi
+	}} = \varepsilon e^{i\phi} i\,d\phi = ci(\beta - \alpha) = i(\beta - \alpha) res_{z= a} f(z)$
+	
+	$a+ \varepsilon e^{i\phi} = z$
+	
+\end{proof}
+
+Отступление
+
+\begin{definition}[Главное значение интеграла]\thmslashn
+	
+	$x_0 \in (a, b)$ особая точка функции $f$
+	
+	$v.p. \int\limits_{a}^b f(x) \,dx = \lim\limits_{\varepsilon \to 0+} \int\limits_{a}^{x_0 - \varepsilon} + \int\limits_{x_0}^{b}f(x)\,dx$
+	
+\end{definition}
+
+\begin{remark}\thmslashn
+
+	Если $\int\limits_{a}^b f(z)\,dx$ сходится, то 
+	
+	$v.p. \int\limits_{a}^b f(x) \,dx = \int\limits_{a}^{b}f(x)\,dx$
+
+\end{remark}
+
+\begin{example}\thmslashn
+	
+	$v.p. \int\limits_{-1}^1\frac{dx}{x} = \lim\limits_{\varepsilon \to 0+} \int\limits_{-1}^{-\varepsilon} + \int\limits_{\varepsilon}^1 \frac{dx}{x}$
+	
+	\TODO не успел дописать(
+	
+\end{example}
+
+Если особых точек несколько, то можем выкинуть интервалы около каждой точки и устремить размер каждого интервала к 0.
+
+Если особая точка бесконечность, то надо смотреть на $\int\limits_{-R}^{R} f(x)\,dx \to v.p. \int\limits_{-\infty}^{+\infty}f(x)\,dx \Rightarrow v.p. \int\limits_{-\infty}^{_\infty} x \,dx = 0$ 
+
+\begin{example}\thmslashn
+	
+	$\int\limits_{0}^{+\infty}\frac{\sin \lambda x}{x} \,dx = \frac{1}{2} \int\limits_{-\infty}^{+\infty} = \frac{\sin \lambda x}{x}\,dx = \frac{1}{2}\int\limits_{-\infty}^{+\infty}\frac{\Im e^{i\lambda x}}{x}\,dx = \frac{1}{2} \Im v.p. \int\limits_{-\infty}^{+\infty} \frac{e^{i\lambda x}}{x}\,dx$
+	
+	Надо найти $v.p. \int\limits_{-\infty}^{+\infty} \frac{e^{i\lambda x}}{x}\,dx =: I$
+	
+	$f(z) = \frac{e^{i\lambda z}}{z}$
+	
+	\TODO рисунок
+	
+	$\int\limits_{\Gamma_{R, \varepsilon}} f(z)\,dz = 0$, тк в область не попали особые точки
+	
+	$\int\limits_{\Gamma_{R, \varepsilon}} f(z)\,dz = \int\limits_{-R}^{-\varepsilon} + \int\limits_{\varepsilon}^{R} + \int\limits_{C_{\varepsilon}} + \int\limits_{C_R} = I + \int\limits_{C_{\varepsilon}}  + 0$
+	
+	$\int\limits_{C_{\varepsilon}} \frac{e^{i\lambda z}}{z} \,dz \to -\pi i res_{z = 0} f(z) = -\pi i \frac{e^{i\lambda z}}{z'}\Big|_{z = 0} = -\pi i$
+	
+	$I - \pi i = 0 \Rightarrow I = \pi i$
+	
+	$\int\limits_{0}^{+\infty}\frac{\sin \lambda x}{x} \,dx = \frac{\pi}{2}$
+	
+\end{example}
+
+\begin{example}\thmslashn
+	
+	$\int\limits_{0}^{+\infty}\frac{x^{p-1}}{1+x} \,dx = \frac{\pi}{\sin \frac{\pi}{p}}\quad p\in (0 ,1)$
+	
+	$f(z) = \frac{e^{(p-1)\Ln z}}{1+ z} \quad \Ln z = \ln z$ если $z > 0$ 
+	
+	$\int\limits_{\Gamma_{R, \varepsilon}} f(z)\,dz = 2\pi i \sum res = 2\pi i res_{z = -1} = 2\pi i e^{(p-1)\Ln (-1)} = 2\pi i e^{(p-1)\pi i}$
+	
+	$\int\limits_{\Gamma_{R, \varepsilon}} f(z)\,dz = \int\limits_{C_{\varepsilon}} + \int\limits_{C_R} + \int\limits_{\varepsilon}^R + \int\limits_{Re^{2\pi i}}^{\varepsilon e^{2\pi i}} $
+	
+	$\abs{\int\limits_{C_R}f(z)\,dz} \leqslant 2\pi R \max{|f(z)|} \leqslant 2\pi R \frac{R^{p-1}}{R-1}$
+	
+	$\abs{\int\limits_{C_\varepsilon}f(z)\,dz} \leqslant 2\pi \varepsilon \max{|f(z)|} \leqslant 2\pi \varepsilon \frac{\varepsilon^{p-1}}{\varepsilon-1} \to 0$
+	
+	$\int\limits_{Re^{2\pi i}}^{\varepsilon e^{2\pi i}} = \int\limits_{R}^{\varepsilon} \frac{e^{(p-1)(\ln x + 2\pi i)}}{1+ x}\,dx = -e^{p-1}2\pi i \int\limits_{\varepsilon}^{R} \frac{x^{p-1}}{1+x}\,dx \to -e^{2\pi i (p-1)} I$
+	
+	$I(1 - e^{2\pi i (p-1)}) = 2\pi i e^{2\pi i (p-1)}$
+	
+	$I = \frac{2\pi i e^{p-1}\pi i}{1 - e^{2\pi i (p-1)}} = -\frac{2\pi i e^{\pi i p}}{1 - e^{2\pi i p}} = \frac{2\pi i e^{\pi i p}}{e^{2\pi i p} - 1} = \pi \frac{2i}{e^{\pi i p} - e^{-\pi i p}} = \frac{1}{\sin \pi p}$
+	
+\end{example}
+
+\begin{theorem}\thmslashn
+	
+	$f$ -- мороморфна в $\CC$, имеет полюсы $a_1, a_2, \ldots, a_n$ и в $\infty$ устранимая особая точка или полюс. Тогда 
+	
+	$f(z) = C + G(z) + \sum\limits_{k = 1}^{n} G_k(z)$, где $G_k$ -- главная часть ряда Лорана в $a_k$, $G$ -- правильная часть ряда Лорана в $\infty$
+	
+	В частности $f$ -- дробно рациональная функция
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	$\phi(z) = f(z) - G(z) - \sum\limits_{k = 1}^{n} G_k(z)$
+	
+	Для $\phi$ точки $a_k$ -- устранимые особые точки $\Rightarrow \phi \in (\CC), G_k\in H(\CC \setminus \{a_k\})$
+	
+	Точка $\infty$ -- устранимая особая точка для $\phi \Rightarrow \phi \in H(\bar{\CC}) \Rightarrow \phi \equiv \text{const}$ 
+	
+\end{proof}
+
+\begin{theorem}\thmslashn
+	
+	$f$ мероморфна в $\CC$, $a_k$ -- ее полюсы
+	
+	Если существует такая последовательность $R_n$, что $\max\limits_{|z| = R_n}|f(z)| =: M_{R_n} \to 0$, 
+	
+	Тогда  $f(z) = \lim\limits_{n \to \infty} \sum\limits_{|a_k| < R_n} G_k(z)$
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	$I_n(z):= \frac{1}{2\pi i} \int\limits_{|\xi| = R_n} \frac{f(\xi)}{\xi - z} \,d\xi$ при $|z| < R_n$
+	
+	$|I_n(z)| \leqslant \frac{2\pi R_n}{2\pi} \frac{M_{R_n}}{R_n - |z|} \to 0$
+	
+	$I_n(z) = res_{\xi = z} \frac{f(\xi)}{\xi - z} + \sum\limits_{|a_k| < R_n} res_{\xi = a_k} \frac{f(\xi)}{\xi - z} = res_{\xi = a_k} \frac{G_k(\xi)}{\xi - z}$
+	
+\end{proof}
