@@ -13,7 +13,7 @@ deploy:
     provider: pages
     github_token: $GITHUB_TOKEN
     skip_cleanup: true
-    repo: vsgol/hse-calculus-2.2
+    repo: vsgol/hse-calculus-2.3
     target_branch: pdf
     local_dir: pdf
     on:
